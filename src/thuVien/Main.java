@@ -8,6 +8,6 @@ public class Main {
 		qLySach.themTaiLieu(new TapChi("TC01", "La cai", 10, 5, "12"));
 		qLySach.hienThiTaiLieu("S01");
 		qLySach.hienThiTaiLieu("B01");
-		qLySach.hienThiTaiLieu("TC01");
+		qLySach.hienThiTaiLieu("TC01"); 
 	}
 }
