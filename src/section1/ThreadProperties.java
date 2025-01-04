@@ -3,7 +3,7 @@ package section1;
 public class ThreadProperties implements Runnable {
 	public static void main(String[] args) {
 		Thread thread = new Thread(new ThreadProperties());
-		thread.run();
+		thread.start();
 	}
 	
 	@Override
