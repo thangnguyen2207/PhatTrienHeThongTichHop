@@ -18,7 +18,7 @@ public class TwoThreads {
 					Thread.sleep(200);
 					System.out.print(c + " ");
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					System.out.println("Thread was interrupted.");
 				}
 			}
 		}
@@ -33,7 +33,7 @@ public class TwoThreads {
 					Thread.sleep(99);
 					System.out.print(i + " ");
 				} catch (InterruptedException e) {
-					e.printStackTrace();
+					System.out.println("Thread was interrupted.");
 				}
 			}
 		}
