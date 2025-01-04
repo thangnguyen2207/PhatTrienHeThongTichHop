@@ -2,15 +2,15 @@ package calculateMultithread;
 
 import java.util.Scanner;
 
-public class MainThread {
+public class CalculateThread {
 	
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Nhap n");
 		int n = scanner.nextInt();
 		
-		CalculateThread thread1 = new CalculateThread(n);
-		Thread thread2 = new Thread(new CalculateRunnable(n));
+		FractionalThread thread1 = new FractionalThread(n);
+		Thread thread2 = new Thread(new SumRunnable(n));
 		
 		thread1.start();
 		thread2.start();
@@ -18,10 +18,10 @@ public class MainThread {
 		scanner.close();
 	}
 	
-	public static class CalculateThread extends Thread {
+	public static class FractionalThread extends Thread {
 		int n;
 		
-		public CalculateThread(int n) {
+		public FractionalThread(int n) {
 			super();
 			this.n = n;
 		}
@@ -41,10 +41,10 @@ public class MainThread {
 		}
 	}
 
-	public static class CalculateRunnable implements Runnable {
+	public static class SumRunnable implements Runnable {
 		int n;
 		
-		public CalculateRunnable(int n) {
+		public SumRunnable(int n) {
 			super();
 			this.n = n;
 		}
