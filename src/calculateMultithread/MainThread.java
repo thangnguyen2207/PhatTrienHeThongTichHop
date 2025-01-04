@@ -2,24 +2,33 @@ package calculateMultithread;
 
 import java.util.Scanner;
 
-public class mainThread {
-	public static Scanner scanner = new Scanner(System.in);
+public class MainThread {
 	
 	public static void main(String[] args) {
-		CalculateThread thread1 = new CalculateThread();
-		Thread thread2 = new Thread(new CalculateRunnable());
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Nhap n");
+		int n = scanner.nextInt();
 		
-		thread1.run();
-//		thread2.run();
+		CalculateThread thread1 = new CalculateThread(n);
+		Thread thread2 = new Thread(new CalculateRunnable(n));
+		
+		thread1.start();
+		thread2.start();
+		
+		scanner.close();
 	}
 	
 	public static class CalculateThread extends Thread {
+		int n;
+		
+		public CalculateThread(int n) {
+			super();
+			this.n = n;
+		}
+
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
 			super.run();
-			System.out.println("Nhap n");
-			int n = scanner.nextInt();
 			System.out.println("Ket qua n!: " + getFractional(n));
 		}
 		
@@ -33,11 +42,15 @@ public class mainThread {
 	}
 
 	public static class CalculateRunnable implements Runnable {
+		int n;
+		
+		public CalculateRunnable(int n) {
+			super();
+			this.n = n;
+		}
+
 		@Override
 		public void run() {
-			// TODO Auto-generated method stub
-			System.out.println("Nhap n");
-			int n = scanner.nextInt();
 			System.out.println("Ket qua 1 - n: " + sum(n));
 		}
 		
